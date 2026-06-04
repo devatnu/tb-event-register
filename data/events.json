@@ -1,0 +1,34 @@
+[
+  {
+    "id": "e1",
+    "type": "hackathon",
+    "title": "TrueHack 2026",
+    "subtitle": "Build for the next billion",
+    "startDate": "2026-06-11",
+    "endDate": "2026-06-12",
+    "registrationDeadline": "2026-06-05",
+    "gradientFrom": "#FFE3C7",
+    "gradientTo": "#FFC79E",
+    "tags": [
+      "24 hrs",
+      "Open to all"
+    ],
+    "live": true
+  },
+  {
+    "id": "e2",
+    "type": "party",
+    "title": "Q2 Kickoff",
+    "subtitle": "Let's celebrate Q1 wins",
+    "startDate": "2026-04-18",
+    "endDate": "2026-04-18",
+    "registrationDeadline": "2026-04-15",
+    "gradientFrom": "#EDE0FA",
+    "gradientTo": "#D6BCF5",
+    "tags": [
+      "Evening",
+      "All teams"
+    ],
+    "live": false
+  }
+]
