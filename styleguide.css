@@ -1,0 +1,31 @@
+/* ── TRUE BALANCE DESIGN SYSTEM ─────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* App surfaces — light theme */
+  --bg:    #F4F4F5;
+  --sf:    #FFFFFF;
+  --sf2:   #FAFAFA;
+
+  /* Brand gradient */
+  --or1:   #FA823B;
+  --or2:   #F25C05;
+  --grad:  linear-gradient(135deg, #FA823B 0%, #F25C05 100%);
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Text */
+  --tx:  #0A0A0A;
+  --mu:  rgba(0,0,0,0.50);
+  --dim: rgba(0,0,0,0.20);
+
+  /* Borders & radius */
+  --bd: rgba(0,0,0,0.10);
+  --r:  14px;
+
+  /* Shadows */
+  --shadow-card:    0 4px 20px rgba(0,0,0,0.08);
+  --shadow-overlay: 0 -8px 40px rgba(0,0,0,0.15);
+}

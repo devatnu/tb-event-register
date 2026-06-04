@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>True Balance Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="styleguide.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+<!-- Home -->
+<div class="scr active" id="home">
+  <div class="home-header">
+    <div class="brand">
+      <img id="tb-logo" style="width:28px;height:28px;border-radius:8px;object-fit:contain;flex-shrink:0" alt="TB">
+      <span style="font-size:15px;font-weight:700;color:var(--tx);letter-spacing:.02em">true balance</span>
+    </div>
+    <h1>Upcoming<br>Events</h1>
+    <p>Register your team or grab your spot</p>
+  </div>
+  <div class="lookup-bar">
+    <input class="form-input" id="lookup-inp" placeholder="Enter card ID (e.g. 2607TA1)" autocomplete="off"
+      onkeydown="if(event.key==='Enter')lookupCard()">
+    <button class="lookup-btn" onclick="lookupCard()">Find Card</button>
+  </div>
+  <div id="ev-list"></div>
+</div>
+
+<!-- Hackathon step 1 -->
+<div class="scr" id="hack1">
+  <div class="topbar">
+    <button class="back" onclick="nav('home')">&#8592;</button>
+    <h2 id="h1-title"></h2>
+  </div>
+  <div class="sec-head">
+    <h3>Your Team</h3>
+    <p>Let's start with the basics</p>
+  </div>
+  <div class="form-section">
+    <label class="form-label">Team Name</label>
+    <input class="form-input" id="team-name" placeholder="e.g. Voltage Squad" autocomplete="off">
+  </div>
+  <div class="form-section" style="margin-top:24px">
+    <label class="form-label">Team Size</label>
+    <div class="count-pills" id="count-pills"></div>
+  </div>
+  <div class="sec-div"></div>
+  <div class="cta-wrap"><button class="btn-cta lg" onclick="h1nx()">Next: Add Members &rarr;</button></div>
+</div>
+
+<!-- Hackathon step 2 -->
+<div class="scr" id="hack2">
+  <div class="topbar">
+    <button class="back" onclick="nav('hack1')">&#8592;</button>
+    <h2>Team Members</h2>
+  </div>
+  <div class="prog-bar-wrap">
+    <div class="step-info" id="h2-step">Step 2 of 3</div>
+    <div class="prog-bar"><div class="prog-fill" style="width:66%"></div></div>
+  </div>
+  <div style="padding:16px 20px 0" id="member-rows"></div>
+  <div class="sec-div"></div>
+  <div class="cta-wrap"><button class="btn-cta lg" onclick="h2nx()">Preview Team &rarr;</button></div>
+</div>
+
+<!-- Hackathon step 3 -->
+<div class="scr" id="hack3">
+  <div class="topbar">
+    <button class="back" onclick="nav('hack2')">&#8592;</button>
+    <h2>Team Preview</h2>
+  </div>
+  <div class="prog-bar-wrap">
+    <div class="step-info">Step 3 of 3 &mdash; Almost there!</div>
+    <div class="prog-bar"><div class="prog-fill" style="width:100%"></div></div>
+  </div>
+  <div class="sec-head" style="padding-top:20px">
+    <h3 id="h3-team"></h3>
+    <p id="h3-sub"></p>
+  </div>
+  <div style="padding:0 20px" id="preview-list"></div>
+  <div class="sec-div"></div>
+  <div class="cta-wrap"><button class="btn-cta lg" onclick="gHack()">Generate ID Cards</button></div>
+</div>
+
+<!-- Party registration -->
+<div class="scr" id="party">
+  <div class="topbar">
+    <button class="back" onclick="nav('home')">&#8592;</button>
+    <h2 id="p-title"></h2>
+  </div>
+  <div class="sec-head">
+    <h3>Your Details</h3>
+    <p>Fill in your info to get your ID card</p>
+  </div>
+  <div class="form-section">
+    <label class="form-label">First Name</label>
+    <input class="form-input" id="p-name" placeholder="e.g. Priya" autocomplete="off">
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">Team / Department</label>
+    <input class="form-input" id="p-team" placeholder="e.g. Product Design" autocomplete="off">
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">Party Mode</label>
+    <div class="mode-pills" id="mode-pills"></div>
+  </div>
+  <div class="sec-div"></div>
+  <div class="cta-wrap"><button class="btn-cta lg" onclick="gParty()">Generate My ID Card</button></div>
+</div>
+
+<!-- Create event -->
+<div class="scr" id="create">
+  <div class="topbar">
+    <button class="back" onclick="nav('home')">&#8592;</button>
+    <h2>Create Event</h2>
+  </div>
+  <div class="sec-head">
+    <h3>Event Details</h3>
+    <p>Set up a new event for your team</p>
+  </div>
+  <div class="form-section">
+    <label class="form-label">Event Name</label>
+    <input class="form-input" id="cr-name" placeholder="e.g. Summer Hackathon 2026" autocomplete="off">
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">Location</label>
+    <input class="form-input" id="cr-loc" placeholder="e.g. True Balance HQ, Gurugram" autocomplete="off">
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">Dates</label>
+    <div class="date-row">
+      <div class="form-section">
+        <input class="form-input" id="cr-from" type="date" style="color-scheme:light">
+      </div>
+      <div class="form-section">
+        <input class="form-input" id="cr-to" type="date" style="color-scheme:light">
+      </div>
+    </div>
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">Event Type</label>
+    <div style="display:flex;gap:8px" id="cr-type-pills">
+      <button class="tpill sel" data-t="party" onclick="setEvType(this,'party')" style="background:linear-gradient(135deg,#7C3AED,#1E0040);border-color:transparent">Party</button>
+      <button class="tpill" data-t="hackathon" onclick="setEvType(this,'hackathon')">Hackathon</button>
+      <button class="tpill" data-t="competition" onclick="setEvType(this,'competition')">Competition</button>
+    </div>
+    <div class="maxsize-wrap" id="cr-maxsize-wrap" style="display:none">
+      <label class="form-label" style="margin-top:4px">Max Team Size</label>
+      <div class="count-pills" id="cr-maxsize-pills"></div>
+    </div>
+  </div>
+  <div class="form-section" style="margin-top:20px">
+    <label class="form-label">ID Card Theme</label>
+    <div class="theme-pills">
+      <button class="thpill thpill-dark sel" id="th-dark" onclick="setTheme(this,'dark')">
+        <span class="thpill-label" style="color:#fff">Dark</span>
+        <span class="thpill-sub" style="color:rgba(255,255,255,.45)">Default vibe</span>
+      </button>
+      <button class="thpill thpill-light" id="th-light" onclick="setTheme(this,'light')">
+        <span class="thpill-label" style="color:#0A0A0A">Light</span>
+        <span class="thpill-sub" style="color:rgba(0,0,0,.45)">Clean &amp; bright</span>
+      </button>
+    </div>
+  </div>
+  <div class="sec-div"></div>
+  <div class="cta-wrap"><button class="btn-cta lg" onclick="gCreate()">Create Event</button></div>
+</div>
+
+<!-- Card overlay -->
+<div id="ov">
+  <div class="ov-top">
+    <button class="ov-edit" onclick="editCards()">Edit</button>
+    <div class="ov-title">Your ID Cards</div>
+    <button class="ov-close" onclick="hOv()">&#215;</button>
+  </div>
+  <div id="ovsc"></div>
+  <div class="ov-dots" id="ov-dots"></div>
+  <div class="ov-actions">
+    <button class="btn-sec" onclick="dlC()">Download</button>
+    <button class="btn-cta" onclick="shC()">Share</button>
+  </div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="assets.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
