@@ -1,0 +1,42 @@
+{
+  "designs": [
+    {
+      "id": 1,
+      "name": "Pink Diamond",
+      "patternBg": "#FF70AC",
+      "patternPrimary": "#FFEF96",
+      "patternSecondary": "#2F5C75",
+      "patternAccent": "#F3B1B9"
+    },
+    {
+      "id": 2,
+      "name": "Navy Star",
+      "patternBg": "#1C2563",
+      "patternPrimary": "#FFEF96",
+      "patternSecondary": "#FF70AC",
+      "patternAccent": "#2F5C75"
+    },
+    {
+      "id": 3,
+      "name": "Lavender Bloom",
+      "patternBg": "#8B9ED9",
+      "patternPrimary": "#1C2563",
+      "patternSecondary": "#FFFFFF",
+      "patternAccent": "#FF70AC"
+    }
+  ],
+  "rolePillColors": {
+    "Dev": "#38BDF8",
+    "Designer": "#A78BFA",
+    "PM": "#E5AD51",
+    "Ops": "#FF7E01",
+    "Other": "#888888"
+  },
+  "modePillColors": {
+    "Flowy": "#A78BFA",
+    "Serious": "#E5AD51",
+    "Wild": "#FF2D55",
+    "Chill": "#38BDF8",
+    "Disco": "#FF7E01"
+  }
+}
